@@ -1,0 +1,54 @@
+Importez le fichier SQL "catalogue.sql" dans une base de donnée nommée "catalogue"
+
+1]
+
+SELECT * FROM film WHERE `date_sortie`>'1960-00-00'
+SELECT `titre` FROM film WHERE `date_sortie`<'1960-00-00'
+
+
+2]
+
+UPDATE `film` SET `description` = 'ceci est matrix' WHERE id = 35
+
+
+
+3]
+
+INSERT INTO `film` (`id`, `titre`, `slug`, `image`, `prix`, `description`, `date_sortie`) VALUES ('69', 'Tchoupi au ski', '', '', '12.99', 'tchoupi a la plage c\'est pas assez clair dans le titre ?', '2022-10-15');
+
+
+4]
+
+SELECT * FROM `commentaire` WHERE `id_film`= 43
+
+
+5]
+
+DELETE FROM `film` WHERE film.slug LIKE 't%'
+
+
+6]
+
+SELECT * FROM `user` WHERE id IN(SELECT id_user FROM commentaire)
+
+
+7]
+
+SELECT * FROM films_categs WHERE `id_categorie` = 51
+
+
+8]
+
+SELECT AVG(note) FROM commentaire
+
+
+9]
+
+
+SELECT * FROM `film` WHERE MONTH(`date_sortie`) = 6
+
+
+10]
+
+
+SELECT * FROM `user` WHERE `role` = 'user' AND `id` IN (SELECT `id_user` FROM `commentaire`)
